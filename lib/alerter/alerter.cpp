@@ -24,12 +24,12 @@ void alert()
     }
     digitalWrite(ledPin, ledState);
 }
-void start()
+void alerter::start()
 {
     pinMode(ledPin, OUTPUT);
     Serial.begin(115200);
 }
-void alertMsg(char *msg)
+void alerter::alertMsg(char *msg)
 {
     if (*msg == '0' || *msg == '1')
     {
