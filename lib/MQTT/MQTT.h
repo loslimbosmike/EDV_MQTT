@@ -2,7 +2,7 @@
 #define MQTT_h
 
 #include <Arduino.h>
-#include <WiFi.h>
+#include <ESP8266WiFi.h>
 #include <PubSubClient.h>
 
 class MQTT
