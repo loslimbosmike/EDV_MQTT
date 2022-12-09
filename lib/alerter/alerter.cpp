@@ -27,7 +27,6 @@ void alert()
 void alerter::start()
 {
     pinMode(ledPin, OUTPUT);
-    Serial.begin(115200);
 }
 void alerter::alertMsg(char *msg)
 {

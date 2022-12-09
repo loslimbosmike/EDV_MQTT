@@ -1,18 +1,12 @@
 #include <Arduino.h>
-#include <MQTT.h>
-#include <alerter.h>
+#include <communicator.h>
 
-char msg [5];
-
-MQTT mqtt;
-alerter alert;
+communicator comm;
  
 void setup() {
-  mqtt.start();
-  alert.start();
+    comm.startCommunicator();
 }
 
 void loop() {
-  mqtt.readMSG(msg);
-  alert.alertMsg(msg);
+    comm.updateCommunicator();
 }

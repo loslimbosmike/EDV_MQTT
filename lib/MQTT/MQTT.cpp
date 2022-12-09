@@ -70,7 +70,6 @@ void callBack(char *topic, byte *payload, unsigned int length)
 }
 void MQTT::start()
 {
-    Serial.begin(115200);
     setupWifi();
     client.setServer(broker, 1883);
     client.setCallback(callBack);
