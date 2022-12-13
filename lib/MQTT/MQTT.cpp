@@ -3,8 +3,8 @@
 WiFiClient espClient;
 PubSubClient client(espClient);
 
-const char *ssid = "HomeSweetHome";
-const char *pwd = "Mike2016Naomi";
+const char *ssid = "xxxx";
+const char *pwd = "xxxx";
 const char *broker = "192.168.2.14";
 const char *inTopic = "epilepsie/alert";
 

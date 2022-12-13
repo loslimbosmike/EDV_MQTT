@@ -2,10 +2,10 @@
 
 byte alertStatus;
 byte ledState = 0;
-byte ledPin;
+byte ledPin = 5;
 long currTime;
 long prvTime;
-long eventTime = 1000;
+long eventTime = 600;
 
 void alert()
 {
