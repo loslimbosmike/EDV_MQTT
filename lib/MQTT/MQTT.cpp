@@ -6,9 +6,12 @@ PubSubClient client(espClient);
 const char *ssid = "xxxx";
 const char *pwd = "xxxx";
 const char *broker = "192.168.2.14";
-const char *inTopic = "epilepsie/alert";
+const char *topic = "epilepsie/alert";
+const char *alerTopic = "epilepsie/alert";
+const char *heartTopic = "epilepsie/heart";
 
 char _msg;
+char pubMsg[2];
 
 void setupWifi()
 {
@@ -42,7 +45,7 @@ void reconnect()
         if (client.connect(clientId.c_str()))
         {
             Serial.println("connected");
-            client.subscribe(inTopic);
+            client.subscribe(topic);
         }
         else
         {
@@ -82,4 +85,20 @@ void MQTT::readMSG(char *msg)
     client.loop();
 
     msg[0] = _msg;
+}
+void MQTT::publishMsg()
+{
+    int heartRate = random(0xDF);
+    pubMsg[0] = '3';
+    if (heartRate > 165)
+    {
+        pubMsg[0] = '1';
+    }
+    else
+    {
+        pubMsg[0] = '0';
+    }
+    String heartMsg = String(heartRate);
+    client.publish(alerTopic, pubMsg);
+    client.publish(heartTopic,heartMsg.c_str());
 }

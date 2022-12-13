@@ -10,6 +10,7 @@ class MQTT
 public:
     void start();
     void readMSG(char *msg);
+    void publishMsg();
 };
 
 #endif
