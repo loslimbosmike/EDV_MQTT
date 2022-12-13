@@ -3,10 +3,10 @@
 WiFiClient espClient;
 PubSubClient client(espClient);
 
-const char *ssid = "Hotwheels_phone";
-const char *pwd = "NaomiLove2011";
-const char *broker = "81.207.241.121";
-const char *inTopic = "/epilepsie/alert";
+const char *ssid = "HomeSweetHome";
+const char *pwd = "Mike2016Naomi";
+const char *broker = "192.168.2.14";
+const char *inTopic = "epilepsie/alert";
 
 char _msg;
 
@@ -36,7 +36,6 @@ void reconnect()
     while (!client.connected())
     {
         Serial.print("Attempting MQTT connection...");
-        // Create a random client ID
         String clientId = "ESP8266Client-";
         clientId += String(random(0xffff), HEX);
         // Attempt to connect
@@ -82,5 +81,5 @@ void MQTT::readMSG(char *msg)
     }
     client.loop();
 
-    *msg = _msg;
+    msg[0] = _msg;
 }

@@ -22,17 +22,23 @@ void alert()
     {
         ledState = alertStatus;
     }
+    Serial.println(ledState);
     digitalWrite(ledPin, ledState);
 }
 void alerter::start()
 {
     pinMode(ledPin, OUTPUT);
 }
-void alerter::alertMsg(char *msg)
+void alerter::alertMsg(char* msg)
 {
-    if (*msg == '0' || *msg == '1')
+    char _msg = msg[0];
+    Serial.print("MSG: ");
+        Serial.println(_msg);
+    delay(2000);
+
+    if (_msg == '0' || _msg == '1')
     {
-        alertStatus = (byte)*msg;
+        alertStatus = (byte)_msg;
         alert();
     }
     else

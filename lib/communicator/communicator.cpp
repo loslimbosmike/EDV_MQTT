@@ -3,7 +3,7 @@
 #include <alerter.h>
 #include <communicator.h>
 
-char msg [5];
+char msg[5];
 
 MQTT mqtt;
 alerter alert;
